@@ -1,5 +1,5 @@
 pages:
-  scripts:
+  script:
     - echo hi
   artifacts:
     paths:
