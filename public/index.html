@@ -18,38 +18,36 @@
 
     </canvas>
     <script>
+        const FPS = 30;
+        var x = 0;
+        var y = 0;
+        var canvas = document.getElementById('our_canvas');
+        var ctx = canvas.getContext('2d');
+        
+        document.addEventListener('keyup', handleKeyUp);
+
+        setInterval(gameLoop, 1000/FPS);
+
         function handleKeyUp(event) {
             if (event.key == 'ArrowUp') {
-                console.log("up");
+                y -= 10;
             } else if (event.key == 'ArrowDown') {
-                console.log("down");
+                y += 10;
             } else if (event.key == 'ArrowLeft') {
-                console.log("left");
+                x -= 10;
             } else if (event.key == 'ArrowRight') {
-                console.log("right");
+                x += 10;
             }
         }
 
         function render() {
-            console.log('rendering');
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            ctx.fillRect(x, y, 75, 20);
         }
 
         function gameLoop() {
-            console.log('we are looping');
             render();
         }
-
-
-        var canvas = document.getElementById('our_canvas');
-        var ctx = canvas.getContext('2d');
-        ctx.fillRect(x, y, 75, 20);
-
-        var x = 0;
-        var y = 0;
-
-        document.addEventListener('keyup', handleKeyUp);
-
-        setInterval(gameLoop, 1000);
     </script>
 </body>
 </html>
